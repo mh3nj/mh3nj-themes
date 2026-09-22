@@ -29,27 +29,25 @@ Then install the generated .vsix file.
 
 ## Theme Previews
 
-The table below shows a preview of each theme. Replace the placeholder images with actual screenshots of your code.
-
 | Theme | Light | Dark |
 |-------|-------|------|
-| Kahroba | ![Kahroba Light](https://via.placeholder.com/150x100?text=Kahroba+Light) | ![Kahroba Dark](https://via.placeholder.com/150x100?text=Kahroba+Dark) |
-| Linen | ![Linen Light](https://via.placeholder.com/150x100?text=Linen+Light) | ![Linen Dark](https://via.placeholder.com/150x100?text=Linen+Dark) |
-| Anar | ![Anar Light](https://via.placeholder.com/150x100?text=Anar+Light) | ![Anar Dark](https://via.placeholder.com/150x100?text=Anar+Dark) |
-| Baran | ![Baran Light](https://via.placeholder.com/150x100?text=Baran+Light) | ![Baran Dark](https://via.placeholder.com/150x100?text=Baran+Dark) |
-| Ember | ![Ember Light](https://via.placeholder.com/150x100?text=Ember+Light) | ![Ember Dark](https://via.placeholder.com/150x100?text=Ember+Dark) |
-| Firouzeh | ![Firouzeh Light](https://via.placeholder.com/150x100?text=Firouzeh+Light) | ![Firouzeh Dark](https://via.placeholder.com/150x100?text=Firouzeh+Dark) |
-| Harbor | ![Harbor Light](https://via.placeholder.com/150x100?text=Harbor+Light) | ![Harbor Dark](https://via.placeholder.com/150x100?text=Harbor+Dark) |
-| Heather | ![Heather Light](https://via.placeholder.com/150x100?text=Heather+Light) | ![Heather Dark](https://via.placeholder.com/150x100?text=Heather+Dark) |
-| Setareh | ![Setareh Light](https://via.placeholder.com/150x100?text=Setareh+Light) | ![Setareh Dark](https://via.placeholder.com/150x100?text=Setareh+Dark) |
-| Simorgh | ![Simorgh Light](https://via.placeholder.com/150x100?text=Simorgh+Light) | ![Simorgh Dark](https://via.placeholder.com/150x100?text=Simorgh+Dark) |
-| Zafaran | ![Zafaran Light](https://via.placeholder.com/150x100?text=Zafaran+Light) | ![Zafaran Dark](https://via.placeholder.com/150x100?text=Zafaran+Dark) |
-| Zeytoon | ![Zeytoon Light](https://via.placeholder.com/150x100?text=Zeytoon+Light) | ![Zeytoon Dark](https://via.placeholder.com/150x100?text=Zeytoon+Dark) |
-| Moss | ![Moss Light](https://via.placeholder.com/150x100?text=Moss+Light) | ![Moss Dark](https://via.placeholder.com/150x100?text=Moss+Dark) |
-| Nilofar | ![Nilofar Light](https://via.placeholder.com/150x100?text=Nilofar+Light) | ![Nilofar Dark](https://via.placeholder.com/150x100?text=Nilofar+Dark) |
-| Quartz | ![Quartz Light](https://via.placeholder.com/150x100?text=Quartz+Light) | ![Quartz Dark](https://via.placeholder.com/150x100?text=Quartz+Dark) |
-| Sepehr | ![Sepehr Light](https://via.placeholder.com/150x100?text=Sepehr+Light) | ![Sepehr Dark](https://via.placeholder.com/150x100?text=Sepehr+Dark) |
-| Yasi | ![Yasi Light](https://via.placeholder.com/150x100?text=Yasi+Light) | ![Yasi Dark](https://via.placeholder.com/150x100?text=Yasi+Dark) |
+| Kahroba | ![Kahroba Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/kahroba-light.png) | ![Kahroba Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/kahroba-dark.png) |
+| Linen | ![Linen Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/linen-light.png) | ![Linen Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/linen-dark.png) |
+| Anar | ![Anar Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/anar-light.png) | ![Anar Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/anar-dark.png) |
+| Baran | ![Baran Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/baran-light.png) | ![Baran Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/baran-dark.png) |
+| Ember | ![Ember Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/ember-light.png) | ![Ember Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/ember-dark.png) |
+| Firouzeh | ![Firouzeh Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/firouzeh-light.png) | ![Firouzeh Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/firouzeh-dark.png) |
+| Harbor | ![Harbor Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/harbor-light.png) | ![Harbor Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/harbor-dark.png) |
+| Heather | ![Heather Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/heather-light.png) | ![Heather Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/heather-dark.png) |
+| Setareh | ![Setareh Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/setareh-light.png) | ![Setareh Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/setareh-dark.png) |
+| Simorgh | ![Simorgh Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/simorgh-light.png) | ![Simorgh Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/simorgh-dark.png) |
+| Zafaran | ![Zafaran Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/zafaran-light.png) | ![Zafaran Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/zafaran-dark.png) |
+| Zeytoon | ![Zeytoon Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/zeytoon-light.png) | ![Zeytoon Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/zeytoon-dark.png) |
+| Moss | ![Moss Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/moss-light.png) | ![Moss Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/moss-dark.png) |
+| Nilofar | ![Nilofar Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/nilofar-light.png) | ![Nilofar Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/nilofar-dark.png) |
+| Quartz | ![Quartz Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/quartz-light.png) | ![Quartz Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/quartz-dark.png) |
+| Sepehr | ![Sepehr Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/sepehr-light.png) | ![Sepehr Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/sepehr-dark.png) |
+| Yasi | ![Yasi Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/yasi-light.png) | ![Yasi Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/yasi-dark.png) |
 
 ## Theme Details
 
