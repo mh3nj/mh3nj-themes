@@ -1,18 +1,56 @@
 {
   "name": "mh3nj-themes",
   "displayName": "Mh3nj Themes",
-  "description": "A family of 17 warm, low-fatigue light/dark themes: Kahroba, Linen, Anar, Baran, Ember, Firouzeh, Harbor, Heather, Setareh, Simorgh, Zafaran, Zeytoon, Moss, Nilofar, Quartz, Sepehr, and Yasi.",
+  "description": "A family of 17 warm, low-fatigue light/dark themes for Visual Studio Code: Kahroba, Linen, Anar, Baran, Ember, Firouzeh, Harbor, Heather, Setareh, Simorgh, Zafaran, Zeytoon, Moss, Nilofar, Quartz, Sepehr, and Yasi.",
   "version": "1.0.0",
   "publisher": "mh3nj",
-  "engines": { "vscode": "^1.60.0" },
-  "categories": ["Themes"],
-  "keywords": [
-    "theme", "color-theme", "dark", "light",
-    "kahroba", "linen", "anar", "baran", "ember",
-    "firouzeh", "harbor", "heather", "setareh",
-    "simorgh", "zafaran", "zeytoon", "moss",
-    "nilofar", "quartz", "sepehr", "yasi"
+  "author": {
+    "name": "mh3nj",
+    "url": "https://mh3n.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/mh3nj/mh3nj-themes#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mh3nj/mh3nj-themes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mh3nj/mh3nj-themes/issues"
+  },
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Themes"
   ],
+  "keywords": [
+    "theme",
+    "color-theme",
+    "dark",
+    "light",
+    "low-fatigue",
+    "kahroba",
+    "linen",
+    "anar",
+    "baran",
+    "ember",
+    "firouzeh",
+    "harbor",
+    "heather",
+    "setareh",
+    "simorgh",
+    "zafaran",
+    "zeytoon",
+    "moss",
+    "nilofar",
+    "quartz",
+    "sepehr",
+    "yasi"
+  ],
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
   "contributes": {
     "themes": [
       { "label": "Kahroba Light",  "uiTheme": "vs",      "path": "./kahroba-light.json"  },
