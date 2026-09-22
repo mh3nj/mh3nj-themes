@@ -1,53 +1,72 @@
+![Mh3nj Themes](screenshots/banner.png)
+
 # Mh3nj Themes
+
+[![License](https://img.shields.io/github/license/mh3nj/mh3nj-themes?color=blue)](LICENSE)
+[![Version](https://img.shields.io/github/v/release/mh3nj/mh3nj-themes?color=green&label=version)](https://github.com/mh3nj/mh3nj-themes/releases)
+[![Stars](https://img.shields.io/github/stars/mh3nj/mh3nj-themes?color=yellow)](https://github.com/mh3nj/mh3nj-themes/stargazers)
+[![Issues](https://img.shields.io/github/issues/mh3nj/mh3nj-themes?color=orange)](https://github.com/mh3nj/mh3nj-themes/issues)
+[![Themes](https://img.shields.io/badge/themes-34-purple)](https://github.com/mh3nj/mh3nj-themes)
+[![VS Code](https://img.shields.io/badge/vscode-%5E1.60.0-blueviolet)](https://code.visualstudio.com)
 
 A family of 17 color themes for Visual Studio Code. Each theme comes in both light and dark variants, giving you 34 options to choose from. The colors are chosen to reduce eye strain during long coding sessions.
 
-Created by mh3nj. You can find the source on [GitHub](https://github.com/mh3nj/mh3nj-themes) and install from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=mh3nj.mh3nj-themes).
+Created by mh3nj. Website: [mh3n.com](https://mh3n.com)
 
 ## Installation
 
-### From VS Code Marketplace
-1. Open Visual Studio Code.
-2. Go to Extensions (Ctrl+Shift+X or Cmd+Shift+X).
-3. Search for "Mh3nj Themes".
-4. Click Install.
-5. Open the Command Palette (Ctrl+Shift+P or Cmd+Shift+P), select Preferences: Color Theme, and pick a theme.
+This extension is not on the VS Code Marketplace. Install it manually from a release build.
 
-### From VSIX
-1. Download the .vsix file from the [Releases](https://github.com/mh3nj/mh3nj-themes/releases) page.
-2. In VS Code, go to Extensions, click the ... menu, and choose Install from VSIX.
-3. Select the downloaded file.
+### From a release VSIX
 
-### From Source
+1. Go to the [Releases](https://github.com/mh3nj/mh3nj-themes/releases) page.
+2. Download the latest `.vsix` file from the assets of that release.
+3. Open Visual Studio Code.
+4. Go to Extensions (Ctrl+Shift+X or Cmd+Shift+X).
+5. Click the `...` menu at the top of the Extensions panel.
+6. Choose **Install from VSIX**.
+7. Select the downloaded file.
+8. Open the Command Palette (Ctrl+Shift+P or Cmd+Shift+P).
+9. Run **Preferences: Color Theme** and pick a theme.
+
+### From source
+
+If you prefer to build it yourself, clone the repo and package it locally.
+
 ```bash
 git clone https://github.com/mh3nj/mh3nj-themes.git
 cd mh3nj-themes
 npm install
-npm run package
+npx @vscode/vsce package
 ```
-Then install the generated .vsix file.
+
+This will generate a `.vsix` file in the project root. Install it using the same Install from VSIX step above.
+
+### Updating
+
+There is no auto update, since this is a GitHub only release. To update, download the newest `.vsix` from Releases, install it the same way, and VS Code will replace the old version.
 
 ## Theme Previews
 
 | Theme | Light | Dark |
 |-------|-------|------|
-| Kahroba | ![Kahroba Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/kahroba-light.png) | ![Kahroba Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/kahroba-dark.png) |
-| Linen | ![Linen Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/linen-light.png) | ![Linen Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/linen-dark.png) |
-| Anar | ![Anar Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/anar-light.png) | ![Anar Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/anar-dark.png) |
-| Baran | ![Baran Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/baran-light.png) | ![Baran Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/baran-dark.png) |
-| Ember | ![Ember Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/ember-light.png) | ![Ember Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/ember-dark.png) |
-| Firouzeh | ![Firouzeh Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/firouzeh-light.png) | ![Firouzeh Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/firouzeh-dark.png) |
-| Harbor | ![Harbor Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/harbor-light.png) | ![Harbor Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/harbor-dark.png) |
-| Heather | ![Heather Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/heather-light.png) | ![Heather Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/heather-dark.png) |
-| Setareh | ![Setareh Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/setareh-light.png) | ![Setareh Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/setareh-dark.png) |
-| Simorgh | ![Simorgh Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/simorgh-light.png) | ![Simorgh Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/simorgh-dark.png) |
-| Zafaran | ![Zafaran Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/zafaran-light.png) | ![Zafaran Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/zafaran-dark.png) |
-| Zeytoon | ![Zeytoon Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/zeytoon-light.png) | ![Zeytoon Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/zeytoon-dark.png) |
-| Moss | ![Moss Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/moss-light.png) | ![Moss Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/moss-dark.png) |
-| Nilofar | ![Nilofar Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/nilofar-light.png) | ![Nilofar Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/nilofar-dark.png) |
-| Quartz | ![Quartz Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/quartz-light.png) | ![Quartz Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/quartz-dark.png) |
-| Sepehr | ![Sepehr Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/sepehr-light.png) | ![Sepehr Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/sepehr-dark.png) |
-| Yasi | ![Yasi Light](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/yasi-light.png) | ![Yasi Dark](https://raw.githubusercontent.com/mh3nj/mh3nj-themes/main/screenshots/yasi-dark.png) |
+| Kahroba | ![Kahroba Light](screenshots/kahroba-light.png) | ![Kahroba Dark](screenshots/kahroba-dark.png) |
+| Linen | ![Linen Light](screenshots/linen-light.png) | ![Linen Dark](screenshots/linen-dark.png) |
+| Anar | ![Anar Light](screenshots/anar-light.png) | ![Anar Dark](screenshots/anar-dark.png) |
+| Baran | ![Baran Light](screenshots/baran-light.png) | ![Baran Dark](screenshots/baran-dark.png) |
+| Ember | ![Ember Light](screenshots/ember-light.png) | ![Ember Dark](screenshots/ember-dark.png) |
+| Firouzeh | ![Firouzeh Light](screenshots/firouzeh-light.png) | ![Firouzeh Dark](screenshots/firouzeh-dark.png) |
+| Harbor | ![Harbor Light](screenshots/harbor-light.png) | ![Harbor Dark](screenshots/harbor-dark.png) |
+| Heather | ![Heather Light](screenshots/heather-light.png) | ![Heather Dark](screenshots/heather-dark.png) |
+| Setareh | ![Setareh Light](screenshots/setareh-light.png) | ![Setareh Dark](screenshots/setareh-dark.png) |
+| Simorgh | ![Simorgh Light](screenshots/simorgh-light.png) | ![Simorgh Dark](screenshots/simorgh-dark.png) |
+| Zafaran | ![Zafaran Light](screenshots/zafaran-light.png) | ![Zafaran Dark](screenshots/zafaran-dark.png) |
+| Zeytoon | ![Zeytoon Light](screenshots/zeytoon-light.png) | ![Zeytoon Dark](screenshots/zeytoon-dark.png) |
+| Moss | ![Moss Light](screenshots/moss-light.png) | ![Moss Dark](screenshots/moss-dark.png) |
+| Nilofar | ![Nilofar Light](screenshots/nilofar-light.png) | ![Nilofar Dark](screenshots/nilofar-dark.png) |
+| Quartz | ![Quartz Light](screenshots/quartz-light.png) | ![Quartz Dark](screenshots/quartz-dark.png) |
+| Sepehr | ![Sepehr Light](screenshots/sepehr-light.png) | ![Sepehr Dark](screenshots/sepehr-dark.png) |
+| Yasi | ![Yasi Light](screenshots/yasi-light.png) | ![Yasi Dark](screenshots/yasi-dark.png) |
 
 ## Theme Details
 
@@ -102,14 +121,27 @@ Sky and space inspired. Deep blues, purples, and starry accents. Expansive and c
 ### Yasi
 Jasmine inspired. Soft purples, pinks, and greens. A fragrant and gentle theme.
 
+## Repository layout
+
+```
+mh3nj-themes/
+├── screenshots/           preview images for every theme
+├── kahroba-light.json     theme files, one per variant
+├── kahroba-dark.json
+├── ...
+├── package.json           extension manifest
+├── README.md
+└── LICENSE
+```
+
 ## Contributing
 
-If you find a bug or have a suggestion, please open an issue or submit a pull request on [GitHub](https://github.com/mh3nj/mh3nj-themes). We welcome contributions :)
+If you find a bug or have a suggestion, open an issue or submit a pull request. Contributions are welcome.
 
 1. Fork the repository.
-2. Create a new branch (git checkout -b feature/your-idea).
-3. Commit your changes (git commit -m 'Add your idea').
-4. Push to the branch (git push origin feature/your-idea).
+2. Create a new branch (`git checkout -b feature/your-idea`).
+3. Commit your changes (`git commit -m 'Add your idea'`).
+4. Push to the branch (`git push origin feature/your-idea`).
 5. Open a Pull Request.
 
 ## License
@@ -119,7 +151,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Credits
 
 Created by mh3nj.  
-Website: [mh3n.com](https://mh3n.com)  
-Publisher: mh3nj
+Website: [mh3n.com](https://mh3n.com)
 
-If you enjoy these themes, please leave a star on GitHub and a review on the VS Code Marketplace. It helps a lot :)
+If you enjoy these themes, please leave a star on the repo. It helps a lot :)
