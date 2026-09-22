@@ -1,5 +1,9 @@
-![Mh3nj Themes](screenshots/banner.png)
+<div style="display:inline; margin:auto;">
+<image src="banner/mh3nj-themes-dark.png" width="49%" loading="lazy">
+<image src="banner/mh3nj-themes-light.png" width="49%" loading="lazy">
+</div>
 
+  
 # Mh3nj Themes
 
 [![License](https://img.shields.io/github/license/mh3nj/mh3nj-themes?color=blue)](LICENSE)
