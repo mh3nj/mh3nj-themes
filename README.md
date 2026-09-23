@@ -16,6 +16,7 @@
 A family of 17 color themes for Visual Studio Code. Each theme comes in both light and dark variants, giving you 34 options to choose from. The colors are chosen to reduce eye strain during long coding sessions.
 
 Created by mh3nj. Website: [mh3n.com](https://mh3n.com)
+*
 Live preview: https://mh3nj.github.io/mh3nj-themes
 
 ## Installation
