@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mh3nj Themes — An Editorial Collection of 17 Color Themes</title>
+<meta name="description" content="A family of 17 warm, low-fatigue color themes for Visual Studio Code. Light and dark variants. Designed for long coding sessions.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:        #0b0b0b;
+  --bg-2:      #101010;
+  --bg-3:      #151515;
+  --fg:        #f2f0ea;
+  --fg-muted:  #9a9893;
+  --fg-dim:    #565450;
+  --line:      #1e1d1b;
+  --line-2:    #2a2825;
+  --max:       1440px;
+  --pad:       clamp(1.25rem, 4vw, 3rem);
+  --ease:      cubic-bezier(0.22, 1, 0.36, 1);
+  --serif:     'Instrument Serif', 'Vazirmatn', 'Times New Roman', serif;
+  --sans:      'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --fa-head:   'Vazirmatn', serif;
+  --mono:      ui-monospace, 'SF Mono', 'Cascadia Code', 'Fira Code', Menlo, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; background: var(--bg); -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--sans);
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-feature-settings: 'kern', 'liga';
+}
+
+::selection { background: var(--fg); color: var(--bg); }
+a { color: inherit; text-decoration: none; transition: opacity 0.3s var(--ease); }
+a:hover { opacity: 0.55; }
+img { display: block; max-width: 100%; height: auto; }
+button { font: inherit; cursor: pointer; }
+
+.grain {
+  position: fixed; inset: -100%; pointer-events: none; z-index: 9999;
+  opacity: 0.035; mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  animation: grainShift 8s steps(6) infinite;
+}
+@keyframes grainShift {
+  0%, 100% { transform: translate(0, 0); }
+  20%      { transform: translate(-3%, 4%); }
+  40%      { transform: translate(4%, -2%); }
+  60%      { transform: translate(-2%, -3%); }
+  80%      { transform: translate(3%, 2%); }
+}
+
+.lang {
+  position: fixed; top: 1.25rem; right: 1.25rem; z-index: 1000;
+  display: flex; background: rgba(11, 11, 11, 0.72);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line-2); border-radius: 999px; padding: 3px; gap: 2px;
+}
+[dir="rtl"] .lang { right: auto; left: 1.25rem; }
+.lang button {
+  background: none; border: 0; color: var(--fg-dim);
+  font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 0.45rem 0.85rem; border-radius: 999px; transition: all 0.35s var(--ease);
+}
+.lang button:hover { color: var(--fg); }
+.lang button.on { background: var(--fg); color: var(--bg); }
+
+.rv { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.rv.on { opacity: 1; transform: none; }
+
+.hero {
+  min-height: 100vh; min-height: 100svh;
+  padding: clamp(5rem, 10vh, 8rem) var(--pad) clamp(3rem, 8vh, 5rem);
+  display: grid; grid-template-columns: 1fr; gap: 2rem;
+  position: relative; border-bottom: 1px solid var(--line);
+}
+
+.hero-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  font-family: var(--mono); font-size: 0.7rem; color: var(--fg-dim);
+  letter-spacing: 0.05em; gap: 1rem; flex-wrap: wrap;
+}
+.hero-top span { white-space: nowrap; }
+
+.hero-title {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(3.4rem, 15vw, 13rem);
+  line-height: 0.88; letter-spacing: -0.035em; margin: 0; max-width: 20ch;
+}
+.hero-title .amp { font-style: italic; color: var(--fg-muted); }
+
+.hero-mid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: end; margin-top: auto; }
+@media (min-width: 900px) { .hero-mid { grid-template-columns: 1.4fr 1fr; gap: 4rem; } }
+
+.hero-lead { font-size: clamp(1.05rem, 2vw, 1.35rem); color: var(--fg); font-weight: 300; max-width: 46ch; line-height: 1.5; }
+.hero-lead em { font-family: var(--serif); font-style: italic; font-weight: 400; }
+
+.hero-side {
+  border-left: 1px solid var(--line-2); padding-left: 1.5rem;
+  color: var(--fg-muted); font-size: 0.9rem; max-width: 42ch;
+}
+[dir="rtl"] .hero-side { border-left: 0; border-right: 1px solid var(--line-2); padding-left: 0; padding-right: 1.5rem; }
+
+.hero-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; grid-column: 1 / -1; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.95rem 1.5rem; border: 1px solid var(--line-2);
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 500; transition: all 0.4s var(--ease); border-radius: 0;
+}
+.btn:hover { opacity: 1; border-color: var(--fg); }
+.btn.fill { background: var(--fg); color: var(--bg); border-color: var(--fg); border-radius: 999px; padding-left: 1.75rem; padding-right: 1.75rem; }
+.btn.fill:hover { background: var(--fg-muted); border-color: var(--fg-muted); }
+
+.hero-foot {
+  position: absolute; bottom: 1.5rem; left: var(--pad); right: var(--pad);
+  display: flex; justify-content: space-between;
+  font-family: var(--mono); font-size: 0.65rem; color: var(--fg-dim);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.hero-foot .arrow { animation: bob 2.4s var(--ease) infinite; display: inline-block; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+.marquee {
+  overflow: hidden; border-bottom: 1px solid var(--line);
+  background: var(--bg-2); padding: 1.1rem 0; white-space: nowrap; user-select: none;
+}
+.marquee-track {
+  display: inline-flex; gap: 2.5rem; animation: marquee 45s linear infinite;
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--fg-dim); padding-left: 2.5rem;
+}
+.marquee-track span { display: inline-flex; align-items: center; gap: 2.5rem; }
+.marquee-track .dot { color: var(--fg); font-size: 0.5rem; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .hero-foot .arrow { animation: none; }
+}
+
+.sec { padding: clamp(4.5rem, 12vh, 9rem) var(--pad); max-width: var(--max); margin: 0 auto; }
+
+.sec-tag {
+  display: flex; align-items: center; gap: 1rem;
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--fg-dim); margin-bottom: 2rem;
+}
+.sec-tag .num { font-family: var(--serif); font-style: italic; font-size: 1.15rem; letter-spacing: 0; color: var(--fg); }
+.sec-tag .line { flex: 1; height: 1px; background: var(--line-2); }
+
+.sec-title {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2rem, 5.5vw, 4rem);
+  line-height: 1.05; letter-spacing: -0.02em; max-width: 22ch; margin-bottom: 1.5rem;
+}
+.sec-title em { font-style: italic; color: var(--fg-muted); }
+
+.sec-lead { color: var(--fg-muted); font-size: clamp(0.95rem, 1.4vw, 1.05rem); max-width: 58ch; line-height: 1.65; }
+
+.manifesto-grid { margin-top: 3.5rem; display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 800px) { .manifesto-grid { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
+.manifesto-col h4 {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--fg-dim); font-weight: 500;
+  margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--line-2);
+}
+.manifesto-col p { font-size: 0.92rem; color: var(--fg-muted); line-height: 1.7; }
+
+.stats { margin-top: 3.5rem; border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2); display: grid; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 720px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stat { padding: 2rem 1.5rem; border-right: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2); }
+.stat:nth-child(2n) { border-right: 0; }
+@media (min-width: 720px) {
+  .stat:nth-child(2n) { border-right: 1px solid var(--line-2); }
+  .stat:nth-child(4n) { border-right: 0; }
+}
+.stat:nth-last-child(-n+2) { border-bottom: 0; }
+@media (min-width: 720px) { .stat:nth-last-child(-n+4) { border-bottom: 0; } }
+.stat-num { font-family: var(--serif); font-weight: 400; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.stat-num em { font-style: italic; color: var(--fg-muted); }
+.stat-lbl { font-family: var(--mono); font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-dim); margin-top: 0.75rem; display: block; }
+
+.catalog-head { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 4rem; }
+@media (min-width: 900px) { .catalog-head { grid-template-columns: 1.2fr 1fr; align-items: end; gap: 4rem; } }
+
+.catalog-hint {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--fg-dim);
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.6rem 1rem; border: 1px dashed var(--line-2);
+  border-radius: 999px; align-self: flex-start;
+}
+.catalog-hint svg { width: 13px; height: 13px; }
+
+.theme { padding: clamp(3rem, 8vh, 5.5rem) 0; border-top: 1px solid var(--line-2); display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 1000px) {
+  .theme { grid-template-columns: minmax(260px, 340px) 1fr; gap: 4rem; align-items: start; }
+}
+
+.theme-meta { display: flex; flex-direction: column; gap: 1rem; }
+.theme-idx { font-family: var(--serif); font-style: italic; font-size: 0.95rem; color: var(--fg-dim); letter-spacing: 0.02em; }
+.theme-idx::before { content: "— "; }
+
+.theme-name { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1; letter-spacing: -0.02em; }
+
+.theme-desc { font-size: 0.92rem; color: var(--fg-muted); line-height: 1.65; max-width: 42ch; }
+
+.theme-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.tag {
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em;
+  text-transform: uppercase; padding: 0.3rem 0.7rem;
+  border: 1px solid var(--line-2); color: var(--fg-dim); border-radius: 999px;
+}
+.tag.solid { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+/* ---------- Compare ---------- */
+.compare {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  --pos: 50%;
+  background: var(--bg-2);
+  display: block;
+}
+
+.compare .img-light {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  object-fit: cover;
+  object-position: top left;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.compare .img-dark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  clip-path: inset(0 0 0 var(--pos));
+  -webkit-clip-path: inset(0 0 0 var(--pos));
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.compare::before,
+.compare::after {
+  position: absolute;
+  bottom: 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.7rem;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f2f0ea;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;
+  z-index: 4;
+}
+.compare::before { content: "Light"; left: 0.8rem; }
+.compare::after  { content: "Dark";  right: 0.8rem; }
+
+.compare .handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 1px;
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateX(-0.5px);
+  pointer-events: none;
+  z-index: 5;
+}
+.compare .handle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 38px;
+  height: 38px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.compare .handle svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  color: #fff;
+  z-index: 6;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .compare::before, .compare::after { font-size: 0.55rem; padding: 0.28rem 0.55rem; }
+  .compare .handle::after { width: 32px; height: 32px; }
+}
+
+
+.process { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+@media (min-width: 900px) { .process { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+.process-list { display: grid; gap: 0; }
+.proc-item { border-top: 1px solid var(--line-2); padding: 1.75rem 0; display: grid; grid-template-columns: 3rem 1fr; gap: 1.5rem; align-items: start; }
+.proc-item:last-child { border-bottom: 1px solid var(--line-2); }
+.proc-num { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--fg-dim); padding-top: 0.1rem; }
+.proc-item h4 { font-family: var(--sans); font-weight: 500; font-size: 1rem; margin-bottom: 0.4rem; letter-spacing: -0.005em; }
+.proc-item p { font-size: 0.88rem; color: var(--fg-muted); line-height: 1.65; }
+
+.process-side { position: sticky; top: 5rem; align-self: start; border-left: 1px solid var(--line-2); padding-left: 2rem; }
+[dir="rtl"] .process-side { border-left: 0; border-right: 1px solid var(--line-2); padding-left: 0; padding-right: 2rem; }
+.process-side p { font-family: var(--serif); font-style: italic; font-size: clamp(1.1rem, 2vw, 1.5rem); line-height: 1.45; color: var(--fg); max-width: 30ch; }
+.process-side p::before { content: "\201C"; color: var(--fg-dim); }
+.process-side p::after  { content: "\201D"; color: var(--fg-dim); }
+.process-side .attribution { display: block; margin-top: 1.5rem; font-family: var(--mono); font-style: normal; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-dim); }
+@media (max-width: 899px) { .process-side { position: static; } }
+
+.install { border-top: 1px solid var(--line-2); }
+.install-grid { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 3rem; border-top: 1px solid var(--line-2); }
+@media (min-width: 800px) { .install-grid { grid-template-columns: repeat(3, 1fr); } }
+.istep { padding: 2.5rem 0; border-bottom: 1px solid var(--line-2); display: grid; gap: 1rem; }
+@media (min-width: 800px) {
+  .istep { padding: 2.5rem 2rem 2.5rem 0; border-bottom: 0; border-right: 1px solid var(--line-2); }
+  .istep:last-child { border-right: 0; padding-right: 0; }
+  .istep:not(:first-child) { padding-left: 2rem; }
+  [dir="rtl"] .istep { border-right: 0; border-left: 1px solid var(--line-2); padding: 2.5rem 0 2.5rem 2rem; }
+  [dir="rtl"] .istep:last-child { border-left: 0; padding-left: 0; }
+  [dir="rtl"] .istep:not(:first-child) { padding-right: 2rem; padding-left: 0; }
+}
+.istep-num { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em; color: var(--fg-dim); }
+.istep h4 { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.01em; }
+.istep p { font-size: 0.88rem; color: var(--fg-muted); line-height: 1.65; }
+.istep code { font-family: var(--mono); font-size: 0.78rem; background: var(--bg-3); border: 1px solid var(--line-2); padding: 0.1rem 0.4rem; border-radius: 3px; color: var(--fg); }
+.istep pre { font-family: var(--mono); font-size: 0.75rem; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 1rem; overflow-x: auto; color: var(--fg-muted); line-height: 1.6; margin-top: 0.5rem; }
+.istep pre code { background: none; border: 0; padding: 0; }
+
+footer { border-top: 1px solid var(--line-2); padding: clamp(3rem, 8vh, 5rem) var(--pad) 2rem; max-width: var(--max); margin: 0 auto; }
+.foot-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; }
+@media (min-width: 800px) { .foot-grid { grid-template-columns: 2fr 1fr 1fr; gap: 4rem; } }
+.foot-brand { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.15; letter-spacing: -0.02em; max-width: 24ch; }
+.foot-brand em { font-style: italic; color: var(--fg-muted); }
+
+.foot-col h5 { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-dim); font-weight: 500; margin-bottom: 1rem; }
+.foot-col ul { list-style: none; display: grid; gap: 0.55rem; }
+.foot-col a { font-size: 0.88rem; color: var(--fg-muted); }
+.foot-col a:hover { color: var(--fg); opacity: 1; }
+
+.foot-base { border-top: 1px solid var(--line-2); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-dim); }
+
+/* ---------- RTL & Persian typography (Vazirmatn only) ---------- */
+[dir="rtl"] .sec-title,
+[dir="rtl"] .hero-title,
+[dir="rtl"] .theme-name,
+[dir="rtl"] .foot-brand,
+[dir="rtl"] .istep h4 {
+  font-family: var(--fa-head);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+[dir="rtl"] .hero-title { font-size: clamp(2.2rem, 8.5vw, 6.5rem); line-height: 1.35; }
+[dir="rtl"] .sec-title { font-size: clamp(1.7rem, 4vw, 3rem); }
+[dir="rtl"] .theme-name { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+[dir="rtl"] .foot-brand { font-size: clamp(1.3rem, 2.2vw, 1.8rem); }
+
+[dir="rtl"] .sec-title em,
+[dir="rtl"] .hero-title em,
+[dir="rtl"] .foot-brand em { font-style: normal; font-weight: 400; color: var(--fg-muted); }
+
+[dir="rtl"] .theme-idx,
+[dir="rtl"] .sec-tag .num,
+[dir="rtl"] .proc-num,
+[dir="rtl"] .stat-num em {
+  font-family: var(--sans); font-style: normal; font-weight: 500;
+}
+
+[dir="rtl"] .process-side p {
+  font-family: var(--fa-head);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.8;
+}
+[dir="rtl"] .process-side p::before,
+[dir="rtl"] .process-side p::after { content: ""; }
+
+[dir="rtl"] .hero-lead,
+[dir="rtl"] .sec-lead,
+[dir="rtl"] .theme-desc,
+[dir="rtl"] .manifesto-col p,
+[dir="rtl"] .istep p,
+[dir="rtl"] .proc-item p,
+[dir="rtl"] .hero-side {
+  line-height: 1.9;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--fg-dim); }
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="lang" aria-label="Language">
+  <button data-lang="en" class="on">EN</button>
+  <button data-lang="fa">FA</button>
+  <button data-lang="de">DE</button>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-top">
+    <span>Mh3nj / Themes</span>
+    <span>Vol. 01 — 2026</span>
+    <span>VSCode · MIT</span>
+  </div>
+
+  <div class="hero-mid">
+    <div>
+      <h1 class="hero-title">
+        <span data-en="Seventeen" data-fa="هفده" data-de="Siebzehn">Seventeen</span>
+        <span class="amp" data-en="quiet" data-fa="پالتِ" data-de="stille">quiet</span>
+        <span data-en="palettes." data-fa="ساکت." data-de="Paletten.">palettes.</span>
+      </h1>
+      <p class="hero-lead" style="margin-top: 2rem;"
+         data-en="A family of color themes for Visual Studio Code, made for the long haul. Warm, low-contrast, and easy on the eyes. Each theme lives in two skins — a <em>light</em> for the day and a <em>dark</em> for the night."
+         data-fa="خانواده‌ای از تم‌های رنگی برای ویژوال استودیو کد، ساخته‌شده برای راهِ طولانی. گرم، کم‌کنتراست، و آسان بر چشم. هر تم در دو پوست زندگی می‌کند: یکی <em>روشن</em> برای روز، یکی <em>تیره</em> برای شب."
+         data-de="Eine Familie von Farbthemen für Visual Studio Code, gemacht für die lange Strecke. Warm, kontrastarm und augenschonend. Jedes Theme lebt in zwei Häuten — ein <em>helles</em> für den Tag und ein <em>dunkles</em> für die Nacht.">
+        A family of color themes for Visual Studio Code, made for the long haul.
+      </p>
+    </div>
+
+    <aside class="hero-side"
+           data-en="Seventeen themes. Thirty-four variants. Zero tracking. No telemetry. Just color, carefully chosen, in a format your editor already knows how to read."
+           data-fa="هفده تم. سی‌وچهار نسخه. بدون ردیابی. بدون تلمتری. فقط رنگ، با وسواس انتخاب‌شده، در قالبی که ادیتور شما از پیش می‌شناسد."
+           data-de="Siebzehn Themen. Vierunddreißig Varianten. Kein Tracking. Keine Telemetrie. Nur Farbe, sorgfältig gewählt, in einem Format, das dein Editor bereits lesen kann.">
+      Seventeen themes. Thirty-four variants. Zero tracking.
+    </aside>
+
+    <div class="hero-cta">
+      <a href="#catalog" class="btn fill" data-en="Browse the catalog" data-fa="مرور کاتالوگ" data-de="Katalog ansehen">Browse the catalog</a>
+      <a href="#install" class="btn" data-en="Install" data-fa="نصب" data-de="Installieren">Install</a>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <span data-en="Scroll" data-fa="اسکرول" data-de="Scrollen">Scroll</span>
+    <span class="arrow">↓</span>
+    <span>mh3n.com</span>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Seventeen Themes <span class="dot">·</span> Thirty-four Variants <span class="dot">·</span> Light and Dark <span class="dot">·</span> Low Fatigued <span class="dot">·</span> Semantic Highlighting <span class="dot">·</span> Consistent UI <span class="dot">·</span> Open Source <span class="dot">·</span></span>
+    <span>Seventeen Themes <span class="dot">·</span> Thirty-four Variants <span class="dot">·</span> Light and Dark <span class="dot">·</span> Low Fatigued <span class="dot">·</span> Semantic Highlighting <span class="dot">·</span> Consistent UI <span class="dot">·</span> Open Source <span class="dot">·</span></span>
+  </div>
+</div>
+
+<section class="sec rv" id="manifesto">
+  <div class="sec-tag">
+    <span class="num">I.</span>
+    <span data-en="Manifesto" data-fa="مانیفست" data-de="Manifest">Manifesto</span>
+    <span class="line"></span>
+  </div>
+
+  <h2 class="sec-title"
+      data-en="Color is not decoration. It is <em>language</em>."
+      data-fa="رنگ تزیین نیست، <em>زبان</em> است."
+      data-de="Farbe ist keine Dekoration. Sie ist <em>Sprache</em>.">
+    Color is not decoration. It is language.
+  </h2>
+
+  <p class="sec-lead"
+     data-en="A theme is the first thing your eyes touch every morning and the last thing they rest on at night. It shapes how fast you read, how long you last, how quickly you spot a bug in a sea of brackets. We made these seventeen palettes because we wanted something specific that did not exist yet — warmth without noise, contrast without glare, and a sense that the editor was designed, not defaulted."
+     data-fa="تم، نخستین چیزی است که هر صبح چشمتان لمس می‌کند و آخرین چیزی که شب بر آن می‌آرامد. تم شکل می‌دهد که چقدر تند می‌خوانید، چقدر دوام می‌آورید، و چقدر زود یک باگ را در میان دریایی از پرانتزها می‌بینید. این هفده پالت را ساختیم چون چیزی مشخص می‌خواستیم که هنوز نبود: گرمی بدون هیاهو، کنتراست بدون تابش، و این حس که ادیتور طراحی شده باشد، نه پیش‌فرض."
+     data-de="Ein Theme ist das Erste, was deine Augen morgens berühren, und das Letzte, worauf sie abends ruhen. Es formt, wie schnell du liest, wie lange du durchhältst, wie schnell du einen Bug in einem Meer aus Klammern erkennst. Wir haben diese siebzehn Paletten gebaut, weil wir etwas Bestimmtes wollten, das es noch nicht gab — Wärme ohne Lärm, Kontrast ohne Blendung, und das Gefühl, dass der Editor gestaltet wurde, nicht voreingestellt.">
+    A theme is the first thing your eyes touch every morning and the last thing they rest on at night.
+  </p>
+
+  <div class="manifesto-grid">
+    <div class="manifesto-col">
+      <h4 data-en="Low fatigue" data-fa="کم‌خستگی" data-de="Augenschonend">Low fatigue</h4>
+      <p data-en="Contrast is pulled back just enough to stay readable, but never so far that it forces your eyes to work. The palette leans warm on purpose. Warm tones are gentler on the eye during long sessions than cold, saturated blues and pinks."
+         data-fa="کنتراست تا آنجا پایین آمده که خواندن سخت نشود، ولی نه آنقدر که چشم مجبور به تقلا شود. پالت عمداً به گرمی می‌زند. تن‌های گرم در نشست‌های طولانی بر چشم مهربان‌ترند از آبی‌ها و صورتی‌های سرد و اشباع‌شده."
+         data-de="Der Kontrast ist gerade so weit zurückgenommen, dass alles lesbar bleibt, aber nie so weit, dass die Augen arbeiten müssen. Die Palette ist absichtlich warm. Warme Töne sind bei langen Sessions sanfter für das Auge als kalte, gesättigte Blau- und Pinktöne.">
+        Contrast is pulled back just enough to stay readable.
+      </p>
+    </div>
+    <div class="manifesto-col">
+      <h4 data-en="Semantic depth" data-fa="عمق معنایی" data-de="Semantische Tiefe">Semantic depth</h4>
+      <p data-en="Every theme ships with scope rules that go beyond the default TextMate grammar. Decorators, parameters, docstrings, embedded languages, JSX children, template literals — the small details are where a theme either holds together or falls apart."
+         data-fa="هر تم با قواعد دامنه‌ای می‌آید که از گرامر پیش‌فرض TextMate فراتر می‌رود. دکوراتورها، پارامترها، داک‌استرینگ‌ها، زبان‌های جاسازی‌شده، فرزندان JSX، تمپلیت‌لیترال‌ها؛ همین جزئیاتِ ریز است که یک تم را سرپا نگه می‌دارد یا از هم می‌پاشد."
+         data-de="Jedes Theme liefert Scope-Regeln, die über die Standard-TextMate-Grammatik hinausgehen. Dekoratoren, Parameter, Docstrings, eingebettete Sprachen, JSX-Kinder, Template-Literale — die kleinen Details entscheiden, ob ein Theme zusammenhält oder auseinanderfällt.">
+        Every theme ships with scope rules that go beyond the default grammar.
+      </p>
+    </div>
+    <div class="manifesto-col">
+      <h4 data-en="Two skins" data-fa="دو پوست" data-de="Zwei Häute">Two skins</h4>
+      <p data-en="Each theme is drawn twice, once for daylight and once for the dark. Not one inverting into the other, but two separate palettes that share the same bones. Switch at sunset and your editor still feels like the same room."
+         data-fa="هر تم دو بار کشیده شده؛ یک بار برای روشنایی روز و یک بار برای تاریکی. نه اینکه یکی از دیگری ساخته شده باشد، بلکه دو پالت جدا که استخوان‌بندیِ یکسان دارند. هنگام غروب که عوض می‌کنید، ادیتور همچنان همان اتاق را حس می‌دهد."
+         data-de="Jedes Theme wird zweimal gezeichnet, einmal für das Tageslicht und einmal für die Dunkelheit. Nicht eines, das in das andere invertiert wird, sondern zwei getrennte Paletten, die dasselbe Gerüst teilen. Wechsle bei Sonnenuntergang, und dein Editor fühlt sich noch wie derselbe Raum an.">
+        Each theme is drawn twice, once for daylight and once for the dark.
+      </p>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">17</div>
+      <span class="stat-lbl" data-en="Themes" data-fa="تم" data-de="Themen">Themes</span>
+    </div>
+    <div class="stat">
+      <div class="stat-num">34</div>
+      <span class="stat-lbl" data-en="Variants" data-fa="نسخه" data-de="Varianten">Variants</span>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <span class="stat-lbl" data-en="Telemetry" data-fa="تلمتری" data-de="Telemetrie">Telemetry</span>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><em>MIT</em></div>
+      <span class="stat-lbl" data-en="License" data-fa="مجوز" data-de="Lizenz">License</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec rv" id="catalog">
+  <div class="sec-tag">
+    <span class="num">II.</span>
+    <span data-en="Catalog" data-fa="کاتالوگ" data-de="Katalog">Catalog</span>
+    <span class="line"></span>
+  </div>
+
+  <div class="catalog-head">
+    <h2 class="sec-title"
+        data-en="Seventeen, in <em>detail</em>."
+        data-fa="هفده تم، با <em>جزئیات</em>."
+        data-de="Siebzehn, im <em>Detail</em>.">
+      Seventeen, in detail.
+    </h2>
+    <div>
+      <p class="sec-lead"
+         data-en="Each theme has its own temperament. Drag the handle across any preview to sweep between its light and dark skins. What you see on the left is daylight. What you see on the right is night."
+         data-fa="هر تم خوی خودش را دارد. دستگیره را روی هر پیش‌نمایش بکشید تا میان پوستِ روشن و تیره‌اش جابه‌جا شوید. آنچه در سمت چپ می‌بینید روز است و آنچه در سمت راست، شب."
+         data-de="Jedes Theme hat sein eigenes Temperament. Ziehe den Griff über jede Vorschau, um zwischen heller und dunkler Haut zu wechseln. Was du links siehst, ist Tag. Was du rechts siehst, ist Nacht.">
+        Each theme has its own temperament.
+      </p>
+      <span class="catalog-hint" style="margin-top: 1.5rem;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v18M16 3v18M3 8h4M3 16h4M17 8h4M17 16h4"/></svg>
+        <span data-en="Drag to compare" data-fa="برای مقایسه بکشید" data-de="Ziehen zum Vergleichen">Drag to compare</span>
+      </span>
+    </div>
+  </div>
+
+  <div id="catalog-list"></div>
+</section>
+
+<section class="sec rv" id="process">
+  <div class="sec-tag">
+    <span class="num">III.</span>
+    <span data-en="Process" data-fa="فرآیند" data-de="Prozess">Process</span>
+    <span class="line"></span>
+  </div>
+
+  <h2 class="sec-title"
+      data-en="How a theme gets <em>made</em>."
+      data-fa="یک تم چطور <em>ساخته</em> می‌شود."
+      data-de="Wie ein Theme <em>entsteht</em>.">
+    How a theme gets made.
+  </h2>
+
+  <div class="process">
+    <div class="process-list">
+      <div class="proc-item">
+        <div class="proc-num">i.</div>
+        <div>
+          <h4 data-en="Anchor hue" data-fa="رنگِ لنگر" data-de="Ankerfarbe">Anchor hue</h4>
+          <p data-en="Every theme starts from a single color — an amber, a green, a turquoise. From that one point, the rest of the palette radiates: shadows, highlights, UI surfaces, and every syntax token downstream."
+             data-fa="هر تم از یک رنگِ واحد آغاز می‌شود؛ یک کهربایی، یک سبز، یک فیروزه‌ای. از همان یک نقطه، باقیِ پالت می‌تابد: سایه‌ها، برجستگی‌ها، سطوح رابط کاربری، و هر توکن سینتکس در ادامه."
+             data-de="Jedes Theme beginnt mit einer einzigen Farbe — ein Bernstein, ein Grün, ein Türkis. Von diesem einen Punkt strahlt die restliche Palette aus: Schatten, Highlights, UI-Flächen und jeder Syntax-Token flussabwärts.">
+            Every theme starts from a single color.
+          </p>
+        </div>
+      </div>
+      <div class="proc-item">
+        <div class="proc-num">ii.</div>
+        <div>
+          <h4 data-en="Balance pass" data-fa="مرحله‌ی تعادل" data-de="Balance-Pass">Balance pass</h4>
+          <p data-en="Then we balance. Saturation gets pulled back until no single token screams for attention. Contrast is dialed to the threshold where it stays readable but stops vibrating. Every color has to earn its place."
+             data-fa="سپس تعادل را برقرار می‌کنیم. اشباع را پایین می‌آوریم تا هیچ توکنی برای جلب توجه فریاد نزند. کنتراست روی همان آستانه‌ای تنظیم می‌شود که خوانا بماند ولی نلرزد. هر رنگ باید جای خودش را به دست بیاورد."
+             data-de="Dann balancieren wir. Die Sättigung wird zurückgenommen, bis kein einzelner Token mehr nach Aufmerksamkeit schreit. Der Kontrast wird bis zur Schwelle justiert, wo er lesbar bleibt, aber aufhört zu vibrieren. Jede Farbe muss ihren Platz verdienen.">
+            Then we balance. Every color has to earn its place.
+          </p>
+        </div>
+      </div>
+      <div class="proc-item">
+        <div class="proc-num">iii.</div>
+        <div>
+          <h4 data-en="Two skins" data-fa="دو پوست" data-de="Zwei Häute">Two skins</h4>
+          <p data-en="The light version is drawn first, because it is harder. Once the daylight palette holds, the dark version is a matter of moving the same bones into a darker room. The two must feel related, not mirrored."
+             data-fa="نسخه‌ی روشن اول کشیده می‌شود، چون سخت‌تر است. وقتی پالتِ روز سرپا ماند، نسخه‌ی تیره فقط جابه‌جا کردنِ همان استخوان‌بندی به اتاقی تاریک‌تر است. این دو باید خویشاوند حس شوند، نه آینه‌ی هم."
+             data-de="Die helle Version wird zuerst gezeichnet, weil sie schwieriger ist. Sobald die Tageslicht-Palette hält, ist die dunkle Version nur noch das Verschieben desselben Gerüsts in einen dunkleren Raum. Die beiden müssen verwandt wirken, nicht gespiegelt.">
+            The light version is drawn first, because it is harder.
+          </p>
+        </div>
+      </div>
+      <div class="proc-item">
+        <div class="proc-num">iv.</div>
+        <div>
+          <h4 data-en="Live with it" data-fa="با آن زندگی کن" data-de="Damit leben">Live with it</h4>
+          <p data-en="Finally, we sit with each theme for weeks. Real code, real projects, real long nights. Whatever looks good in a screenshot but tires the eyes by hour three gets revised or cut entirely."
+             data-fa="در پایان، هفته‌ها با هر تم می‌نشینیم. کدِ واقعی، پروژه‌ی واقعی، شب‌های واقعی. هر چیزی که در اسکرین‌شات خوب به نظر برسد ولی تا ساعت سوم چشم را خسته کند، بازبینی یا کنار گذاشته می‌شود."
+             data-de="Schließlich sitzen wir wochenlang mit jedem Theme. Echter Code, echte Projekte, echte lange Nächte. Was im Screenshot gut aussieht, aber nach drei Stunden die Augen ermüdet, wird überarbeitet oder ganz gestrichen.">
+            Finally, we sit with each theme for weeks.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <aside class="process-side">
+      <p data-en="Good color does not announce itself. It disappears into the work."
+         data-fa="رنگِ خوب خودش را اعلام نمی‌کند. در دلِ کار ناپدید می‌شود."
+         data-de="Gute Farbe kündigt sich nicht an. Sie verschwindet in der Arbeit.">
+        Good color does not announce itself. It disappears into the work.
+      </p>
+      <span class="attribution">— Mh3nj</span>
+    </aside>
+  </div>
+</section>
+
+<section class="sec install rv" id="install">
+  <div class="sec-tag">
+    <span class="num">IV.</span>
+    <span data-en="Installation" data-fa="نصب" data-de="Installation">Installation</span>
+    <span class="line"></span>
+  </div>
+
+  <h2 class="sec-title"
+      data-en="Three steps. No <em>marketplace</em>."
+      data-fa="سه قدم. بدون <em>مارکت‌پلیس</em>."
+      data-de="Drei Schritte. Kein <em>Marktplatz</em>.">
+    Three steps. No marketplace.
+  </h2>
+
+  <p class="sec-lead"
+     data-en="This collection lives on GitHub. Installation is manual, which means no telemetry, no tracking, no auto-update machinery. You install it once, and it stays installed until you decide otherwise."
+     data-fa="این مجموعه روی گیت‌هاب زندگی می‌کند. نصب، دستی است؛ یعنی بدون تلمتری، بدون ردیابی، بدون مکانیزمِ به‌روزرسانیِ خودکار. یک بار نصب می‌کنید و تا وقتی خودتان نخواهید، همان‌جا می‌ماند."
+     data-de="Diese Sammlung lebt auf GitHub. Die Installation ist manuell, was bedeutet: keine Telemetrie, kein Tracking, keine Auto-Update-Maschinerie. Du installierst einmal, und es bleibt installiert, bis du anders entscheidest.">
+    This collection lives on GitHub. Installation is manual.
+  </p>
+
+  <div class="install-grid">
+    <div class="istep">
+      <span class="istep-num">01 / DOWNLOAD</span>
+      <h4 data-en="Grab the VSIX" data-fa="فایل VSIX را بگیرید" data-de="VSIX herunterladen">Grab the VSIX</h4>
+      <p data-en="Head to the Releases page and download the latest .vsix file. It is a plain package. No installer, no background process, no obligation."
+         data-fa="به صفحه‌ی Releases بروید و تازه‌ترین فایل .vsix را دانلود کنید. بسته‌ای ساده است؛ بدون نصب‌کننده، بدون پروسه‌ی پس‌زمینه، بدون تعهد."
+         data-de="Gehe zur Releases-Seite und lade die neueste .vsix-Datei herunter. Es ist ein einfaches Paket. Kein Installer, kein Hintergrundprozess, keine Verpflichtung.">
+        Head to the Releases page and download the latest .vsix file.
+      </p>
+    </div>
+    <div class="istep">
+      <span class="istep-num">02 / INSTALL</span>
+      <h4 data-en="Install from VSIX" data-fa="از VSIX نصب کنید" data-de="Aus VSIX installieren">Install from VSIX</h4>
+      <p data-en="Open VS Code, go to Extensions, click the <code>...</code> menu at the top of the panel, and choose <code>Install from VSIX</code>. Select the file you just downloaded."
+         data-fa="VS Code را باز کنید، به Extensions بروید، روی منوی <code>...</code> در بالای پنل کلیک کنید و <code>Install from VSIX</code> را انتخاب کنید. فایلی که دانلود کردید را برگزینید."
+         data-de="Öffne VS Code, gehe zu Extensions, klicke oben im Panel auf das Menü <code>...</code> und wähle <code>Install from VSIX</code>. Wähle die Datei aus, die du gerade heruntergeladen hast.">
+        Open VS Code, go to Extensions, click the <code>...</code> menu, and choose <code>Install from VSIX</code>.
+      </p>
+    </div>
+    <div class="istep">
+      <span class="istep-num">03 / CHOOSE</span>
+      <h4 data-en="Pick a theme" data-fa="یک تم انتخاب کنید" data-de="Ein Theme wählen">Pick a theme</h4>
+      <p data-en="Open the Command Palette, run <code>Preferences: Color Theme</code>, and pick any of the thirty-four variants. Switch whenever the light changes in your room."
+         data-fa="Command Palette را باز کنید، <code>Preferences: Color Theme</code> را اجرا کنید و یکی از سی‌وچهار نسخه را انتخاب کنید. هر وقت نور اتاق عوض شد، عوضش کنید."
+         data-de="Öffne die Command Palette, führe <code>Preferences: Color Theme</code> aus und wähle eine der vierunddreißig Varianten. Wechsle, wann immer sich das Licht in deinem Raum ändert.">
+        Open the Command Palette, run <code>Preferences: Color Theme</code>, and pick any of the thirty-four variants.
+      </p>
+    </div>
+  </div>
+
+  <div class="istep" style="border-right: 0; padding-right: 0; padding-left: 0; grid-column: 1 / -1; border-top: 1px solid var(--line-2); margin-top: 2rem;">
+    <span class="istep-num">FROM SOURCE</span>
+    <h4 data-en="Or build it yourself" data-fa="یا خودتان بسازید" data-de="Oder selbst bauen">Or build it yourself</h4>
+    <p data-en="If you prefer to package from source, the repo is one command away. Clone, install, package."
+       data-fa="اگر ترجیح می‌دهید از سورس بسته‌بندی کنید، مخزن فقط یک دستور فاصله دارد. کلون کنید، نصب کنید، بسته‌بندی کنید."
+       data-de="Wenn du lieber aus dem Quellcode packen möchtest, ist das Repo nur einen Befehl entfernt. Klonen, installieren, packen.">
+      If you prefer to package from source, the repo is one command away.
+    </p>
+    <pre><code>git clone https://github.com/mh3nj/mh3nj-themes.git
+cd mh3nj-themes
+npm install
+npx @vscode/vsce package</code></pre>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand"
+         data-en="Made slowly, on <em>purpose</em>."
+         data-fa="به‌آرامی ساخته شده، با <em>قصد</em>."
+         data-de="Langsam gemacht, mit <em>Absicht</em>.">
+      Made slowly, on purpose.
+    </div>
+    <div class="foot-col">
+      <h5 data-en="Elsewhere" data-fa="جای دیگر" data-de="Anderswo">Elsewhere</h5>
+      <ul>
+        <li><a href="https://github.com/mh3nj" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://mh3n.com" target="_blank" rel="noopener">mh3n.com</a></li>
+        <li><a href="https://github.com/mh3nj/mh3nj-themes/releases" target="_blank" rel="noopener">Releases</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5 data-en="Project" data-fa="پروژه" data-de="Projekt">Project</h5>
+      <ul>
+        <li><a href="https://github.com/mh3nj/mh3nj-themes/blob/main/LICENSE" target="_blank" rel="noopener">License</a></li>
+        <li><a href="https://github.com/mh3nj/mh3nj-themes/issues" target="_blank" rel="noopener">Issues</a></li>
+        <li><a href="#top" data-en="Back to top" data-fa="بازگشت به بالا" data-de="Nach oben">Back to top</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span data-en="© 2026 mh3nj · MIT" data-fa="© ۲۰۲۶ mh3nj · MIT" data-de="© 2026 mh3nj · MIT">© 2026 mh3nj · MIT</span>
+    <span data-en="Made with care" data-fa="با وسواس ساخته شده" data-de="Mit Sorgfalt gemacht">Made with care</span>
+    <span>mh3nj-themes v1.0.0</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var THEMES = [
+    { slug: 'kahroba', name: 'Kahroba',
+      tags: { en: ['warm','amber','gold'], fa: ['گرم','کهربایی','طلایی'], de: ['warm','Bernstein','Gold'] },
+      desc: {
+        en: 'Warm amber and gold, tuned for a cozy room. The light version stays soft and forgiving; the dark version glows like a low lamp on a winter desk.',
+        fa: 'کهربایی و طلاییِ گرم، مناسب اتاقی دنج. نسخه‌ی روشن نرم و بخشنده است و نسخه‌ی تیره مثل چراغی کم‌نور روی میزِ زمستانی می‌درخشد.',
+        de: 'Warmes Bernstein und Gold, abgestimmt auf einen gemütlichen Raum. Die helle Version bleibt weich und nachsichtig; die dunkle leuchtet wie eine gedimmte Lampe auf einem Wintertisch.'
+      }
+    },
+    { slug: 'linen', name: 'Linen',
+      tags: { en: ['beige','natural','neutral'], fa: ['بژ','طبیعی','خنثی'], de: ['Beige','natürlich','neutral'] },
+      desc: {
+        en: 'Neutral beige and warm earth tones, like raw linen on a workbench. Calm, quiet, and easy to sit inside for eight hours without noticing it.',
+        fa: 'بژِ خنثی و رنگ‌های خاکیِ گرم، مثل کتانِ خام روی میز کار. آرام، ساکت، و راحت برای هشت ساعت نشستن بی‌آنکه متوجهش شوید.',
+        de: 'Neutrales Beige und warme Erdtöne, wie rohes Leinen auf einer Werkbank. Ruhig, still und leicht, acht Stunden darin zu sitzen, ohne es zu bemerken.'
+      }
+    },
+    { slug: 'anar', name: 'Anar',
+      tags: { en: ['pomegranate','maroon','bold'], fa: ['اناری','زرشکی','جسور'], de: ['Granatapfel','Marone','kühn'] },
+      desc: {
+        en: 'Pomegranate reds and deep maroons for the ones who want their editor to have a pulse. Rich, ripe, but never shouting.',
+        fa: 'قرمزهای اناری و زرشکی‌های عمیق، برای آن‌ها که می‌خواهند ادیتورشان نبض داشته باشد. غنی و رسیده، ولی هرگز فریادزننده.',
+        de: 'Granatapfelrot und tiefes Marone für alle, die wollen, dass ihr Editor einen Puls hat. Reich, reif, aber nie schreiend.'
+      }
+    },
+    { slug: 'baran', name: 'Baran',
+      tags: { en: ['rain','cool','grey'], fa: ['باران','خنک','خاکستری'], de: ['Regen','kühl','grau'] },
+      desc: {
+        en: 'Cool blues and soft greys, borrowed from a rainy window. A palette for people who think best when the weather does not.',
+        fa: 'آبی‌های خنک و خاکستری‌های نرم، به عاریت از پنجره‌ای بارانی. پالتی برای کسانی که وقتی هوا همکاری نمی‌کند، بهتر فکر می‌کنند.',
+        de: 'Kühle Blautöne und weiches Grau, geliehen von einem regnerischen Fenster. Eine Palette für Menschen, die am besten denken, wenn das Wetter es nicht tut.'
+      }
+    },
+    { slug: 'ember', name: 'Ember',
+      tags: { en: ['ember','orange','warm'], fa: ['زغال','نارنجی','گرم'], de: ['Glut','Orange','warm'] },
+      desc: {
+        en: 'Embers on a fire that is almost out. Oranges, browns and a red hot enough to keep you moving through a long build.',
+        fa: 'زغال‌های آتشی رو به خاموشی. نارنجی‌ها، قهوه‌ای‌ها و قرمزی که آنقدر گرم است که شما را در طول یک بیلدِ طولانی به حرکت نگه می‌دارد.',
+        de: 'Glut auf einem fast erloschenen Feuer. Orange, Braun und ein Rot, das heiß genug ist, um dich durch einen langen Build zu tragen.'
+      }
+    },
+    { slug: 'firouzeh', name: 'Firouzeh',
+      tags: { en: ['turquoise','teal','fresh'], fa: ['فیروزه','سبزآبی','تازه'], de: ['Türkis','Blaugrün','frisch'] },
+      desc: {
+        en: 'Persian turquoise, the kind you find on old tiles in Isfahan. Refreshing, bright in the right places, quiet everywhere else.',
+        fa: 'فیروزه‌ی ایرانی، همان که روی کاشی‌های کهنه‌ی اصفهان می‌بینید. طراوت‌بخش، در جاهای درست روشن، و در باقی جاها ساکت.',
+        de: 'Persischer Türkis, wie auf alten Fliesen in Isfahan. Erfrischend, hell an den richtigen Stellen, still überall sonst.'
+      }
+    },
+    { slug: 'harbor', name: 'Harbor',
+      tags: { en: ['navy','teal','professional'], fa: ['سرمه‌ای','سبزآبی','حرفه‌ای'], de: ['Marine','Blaugrün','professionell'] },
+      desc: {
+        en: 'A harbor at dusk. Deep blues and muted teals for those who want a working palette that feels like it has a job to do.',
+        fa: 'بندری در غروب. آبی‌های عمیق و سبزآبی‌های ملایم، برای کسانی که پالتی کاری می‌خواهند که حسِ انجام‌دادنِ کار بدهد.',
+        de: 'Ein Hafen in der Abenddämmerung. Tiefe Blautöne und gedämpftes Blaugrün für alle, die eine Arbeitspalette wollen, die das Gefühl hat, eine Aufgabe zu haben.'
+      }
+    },
+    { slug: 'heather', name: 'Heather',
+      tags: { en: ['mauve','soft','floral'], fa: ['ارغوانی','نرم','گلی'], de: ['Malve','weich','floral'] },
+      desc: {
+        en: 'Heather fields in bloom. Soft purples and mauves for those who like their editor to feel like a morning on a hill.',
+        fa: 'دشت‌های خلنگِ شکفته. بنفش‌های نرم و ارغوانی‌ها، برای کسانی که دوست دارند ادیتورشان صبحی روی تپه حس شود.',
+        de: 'Blühende Heidefelder. Sanfte Violett- und Malventöne für alle, die ihren Editor wie einen Morgen auf einem Hügel fühlen möchten.'
+      }
+    },
+    { slug: 'setareh', name: 'Setareh',
+      tags: { en: ['starry','dreamy','purple'], fa: ['پرستاره','رویایی','بنفش'], de: ['sternenklar','verträumt','violett'] },
+      desc: {
+        en: 'Starry night, reworked as a color scheme. Deep purples, cold blues, and small bright accents that behave like distant stars.',
+        fa: 'شبِ پرستاره، بازنویسی‌شده در قالب یک طرح رنگی. بنفش‌های عمیق، آبی‌های سرد، و لهجه‌های کوچکِ روشن که مثل ستاره‌های دور رفتار می‌کنند.',
+        de: 'Sternenklare Nacht, neu gearbeitet als Farbschema. Tiefes Violett, kaltes Blau und kleine helle Akzente, die sich wie ferne Sterne verhalten.'
+      }
+    },
+    { slug: 'simorgh', name: 'Simorgh',
+      tags: { en: ['mythic','regal','gold'], fa: ['افسانه‌ای','باشکوه','طلایی'], de: ['mythisch','königlich','Gold'] },
+      desc: {
+        en: 'The Simorgh is a bird that does not exist and does not need to. Rich purples, deep golds, reds that mean business.',
+        fa: 'سیمرغ پرنده‌ای است که وجود ندارد و نیازی هم به بودنش نیست. بنفش‌های غنی، طلایی‌های عمیق، و قرمزهایی که جدی‌اند.',
+        de: 'Der Simorgh ist ein Vogel, der nicht existiert und nicht existieren muss. Satte Violetttöne, tiefes Gold, Rottöne, die ernst gemeint sind.'
+      }
+    },
+    { slug: 'zafaran', name: 'Zafaran',
+      tags: { en: ['saffron','spicy','yellow'], fa: ['زعفران','تند','زرد'], de: ['Safran','würzig','Gelb'] },
+      desc: {
+        en: 'Saffron, that spice that costs more than gold. Warm yellows, deep oranges, and reds that heat the editor from the inside.',
+        fa: 'زعفران، همان ادویه‌ای که از طلا گران‌تر است. زردهای گرم، نارنجی‌های عمیق، و قرمزهایی که ادیتور را از درون گرم می‌کنند.',
+        de: 'Safran, dieses Gewürz, das teurer ist als Gold. Warmes Gelb, tiefes Orange und Rottöne, die den Editor von innen aufwärmen.'
+      }
+    },
+    { slug: 'zeytoon', name: 'Zeytoon',
+      tags: { en: ['olive','earthy','natural'], fa: ['زیتون','خاکی','طبیعی'], de: ['Olive','erdig','natürlich'] },
+      desc: {
+        en: 'Olive groves on a hot afternoon. Greens that lean grey, warm browns underneath, and a calm that does not ask for attention.',
+        fa: 'باغ‌های زیتون در بعدازظهرِ گرم. سبزهایی که به خاکستری می‌زنند، قهوه‌ای‌های گرم در زیر، و آرامشی که توجه نمی‌طلبد.',
+        de: 'Olivenhaine an einem heißen Nachmittag. Grün, das ins Graue kippt, warmes Braun darunter und eine Ruhe, die keine Aufmerksamkeit verlangt.'
+      }
+    },
+    { slug: 'moss', name: 'Moss',
+      tags: { en: ['forest','green','organic'], fa: ['جنگل','سبز','آلی'], de: ['Wald','grün','organisch'] },
+      desc: {
+        en: 'Moss on a forest floor, taken home and placed inside an editor. Deep greens, wet browns, and a shade of stone that keeps things grounded.',
+        fa: 'خزه‌ی روی زمینِ جنگل، آورده به خانه و نشانده درون ادیتور. سبزهای عمیق، قهوه‌ای‌های خیس، و سایه‌ای از سنگ که همه‌چیز را روی زمین نگه می‌دارد.',
+        de: 'Moos auf dem Waldboden, mit nach Hause genommen und in einen Editor gesetzt. Tiefes Grün, nasses Braun und ein Steinton, der alles geerdet hält.'
+      }
+    },
+    { slug: 'nilofar', name: 'Nilofar',
+      tags: { en: ['water lily','delicate','serene'], fa: ['نیلوفر آبی','لطیف','آرام'], de: ['Seerose','zart','gelassen'] },
+      desc: {
+        en: 'A water lily is a whole ecosystem disguised as a flower. Soft blues, greens and pinks that keep the surface calm.',
+        fa: 'نیلوفر آبی یک اکوسیستمِ کامل است که خودش را به شکل گل جا زده. آبی‌های نرم، سبزها و صورتی‌هایی که سطح را آرام نگه می‌دارند.',
+        de: 'Eine Seerose ist ein ganzes Ökosystem, verkleidet als Blume. Weiches Blau, Grün und Rosa, die die Oberfläche ruhig halten.'
+      }
+    },
+    { slug: 'quartz', name: 'Quartz',
+      tags: { en: ['mineral','cool','clean'], fa: ['معدنی','خنک','تمیز'], de: ['Mineral','kühl','sauber'] },
+      desc: {
+        en: 'Quartz crystal, cut into a user interface. Cool greys, soft blues, and a clarity that leaves no room for dust in the corners.',
+        fa: 'کریستالِ کوارتز، برش‌خورده در قالبِ یک رابط کاربری. خاکستری‌های خنک، آبی‌های نرم، و شفافیتی که برای گردوخاک در گوشه‌ها جا نمی‌گذارد.',
+        de: 'Quarzkristall, geschnitten in eine Benutzeroberfläche. Kühles Grau, weiches Blau und eine Klarheit, die keinen Staub in den Ecken lässt.'
+      }
+    },
+    { slug: 'sepehr', name: 'Sepehr',
+      tags: { en: ['sky','space','wide'], fa: ['آسمان','فضا','گسترده'], de: ['Himmel','Weltraum','weit'] },
+      desc: {
+        en: 'Sepehr is the old name for the sky, in the sense of the whole vault of it. Deep blues, cosmic purples, and small bright points that keep you oriented.',
+        fa: 'سپهر نامِ کهنِ آسمان است، به معنای تمامِ گنبدش. آبی‌های عمیق، بنفش‌های کیهانی، و نقطه‌های کوچکِ روشنی که جهت‌یابی‌تان را نگه می‌دارند.',
+        de: 'Sepehr ist der alte Name für den Himmel, im Sinne des ganzen Gewölbes. Tiefe Blautöne, kosmisches Violett und kleine helle Punkte, die dich orientieren.'
+      }
+    },
+    { slug: 'yasi', name: 'Yasi',
+      tags: { en: ['jasmine','fragrant','gentle'], fa: ['یاس','خوش‌بو','لطیف'], de: ['Jasmin','duftend','sanft'] },
+      desc: {
+        en: 'Jasmine, after the sun has gone down and the air still holds the day. Soft purples, pinks, and a green that smells like something.',
+        fa: 'یاس، بعد از آنکه خورشید فرو رفت و هوا هنوز روز را در خود نگه داشته. بنفش‌های نرم، صورتی‌ها، و سبزی که بویی دارد.',
+        de: 'Jasmin, nachdem die Sonne untergegangen ist und die Luft noch den Tag hält. Weiches Violett, Rosa und ein Grün, das nach etwas riecht.'
+      }
+    }
+  ];
+
+  /* =====================================================
+     IMAGE PATHS
+     Relative paths work everywhere: localhost, GitHub Pages,
+     any static host. Just make sure index.html sits at the
+     repo root, next to the screenshots folder.
+     ===================================================== */
+  var IMG_LIGHT = 'screenshots/';
+  var IMG_DARK  = 'screenshots/';
+
+  function esc(s) { return String(s).replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+
+  function renderCatalog() {
+  var list = document.getElementById('catalog-list');
+  var html = '';
+  THEMES.forEach(function (t, i) {
+    var num = String(i + 1).padStart(2, '0');
+    var tagList = t.tags.en.map(function (word, idx) {
+      return '<span class="tag" data-en="' + t.tags.en[idx] + '" data-fa="' + t.tags.fa[idx] + '" data-de="' + t.tags.de[idx] + '">' + word + '</span>';
+    }).join('');
+    var lightUrl = IMG_LIGHT + t.slug + '-light.png';
+    var darkUrl  = IMG_DARK  + t.slug + '-dark.png';
+    html +=
+      '<article class="theme">' +
+        '<div class="theme-meta">' +
+          '<div class="theme-idx">Theme ' + num + '</div>' +
+          '<h3 class="theme-name">' + t.name + '</h3>' +
+          '<p class="theme-desc" ' +
+            'data-en="' + esc(t.desc.en) + '" ' +
+            'data-fa="' + esc(t.desc.fa) + '" ' +
+            'data-de="' + esc(t.desc.de) + '">' + t.desc.en + '</p>' +
+          '<div class="theme-tags">' +
+            '<span class="tag solid" data-en="Light" data-fa="روشن" data-de="Hell">Light</span>' +
+            '<span class="tag solid" data-en="Dark" data-fa="تیره" data-de="Dunkel">Dark</span>' +
+            tagList +
+          '</div>' +
+        '</div>' +
+        '<div class="compare" data-theme="' + t.slug + '" style="--pos: 50%;">' +
+          '<img class="img-light" src="' + lightUrl + '" alt="' + t.name + ' light" loading="lazy" draggable="false" onerror="console.warn(\'[Mh3nj] missing:\', this.src)">' +
+          '<img class="img-dark"  src="' + darkUrl  + '" alt="' + t.name + ' dark"  loading="lazy" draggable="false" onerror="console.warn(\'[Mh3nj] missing:\', this.src)">' +
+          '<div class="handle" aria-hidden="true">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l-3 6 3 6M15 6l3 6-3 6"/></svg>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+  });
+  list.innerHTML = html;
+}
+
+  function initCompares() {
+    var nodes = document.querySelectorAll('.compare');
+    nodes.forEach(function (el) {
+      var dragging = false;
+      function setPos(clientX) {
+        var rect = el.getBoundingClientRect();
+        var pct = ((clientX - rect.left) / rect.width) * 100;
+        pct = Math.max(2, Math.min(98, pct));
+        el.style.setProperty('--pos', pct + '%');
+      }
+      el.addEventListener('pointerdown', function (e) {
+        dragging = true;
+        try { el.setPointerCapture(e.pointerId); } catch (err) {}
+        setPos(e.clientX);
+      });
+      el.addEventListener('pointermove', function (e) { if (dragging) setPos(e.clientX); });
+      el.addEventListener('pointerup', function (e) {
+        dragging = false;
+        try { el.releasePointerCapture(e.pointerId); } catch (err) {}
+      });
+      el.addEventListener('pointercancel', function () { dragging = false; });
+    });
+  }
+
+  var buttons = document.querySelectorAll('.lang button');
+  var stored = null;
+  try { stored = localStorage.getItem('mh3nj-lang'); } catch (e) {}
+  var current = stored || 'en';
+
+  function apply(lang) {
+    current = lang;
+    try { localStorage.setItem('mh3nj-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'fa') ? 'rtl' : 'ltr';
+    buttons.forEach(function (b) { b.classList.toggle('on', b.dataset.lang === lang); });
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      var val = el.getAttribute('data-' + lang);
+      if (val !== null) el.innerHTML = val;
+    });
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.dataset.lang); });
+  });
+
+  function initReveal() {
+    var els = document.querySelectorAll('.rv');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('on'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('on');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  renderCatalog();
+  apply(current);
+  initCompares();
+  initReveal();
+
+})();
+</script>
+</body>
+</html>
